@@ -1,0 +1,186 @@
+// rose, blu, bluD1, bluD2, bluD3, padding-1 to 3(5,3,2)
+@use './variables/variables' as v;
+
+// center, between, absolute
+@use './mixins/mixins' as m;
+
+#login{
+    #background{
+        width: 100%;
+        @include m.grid4;
+        grid-template-areas: 
+            "div1 div2"
+            "div1 div3"
+        ;
+
+        .first-div {
+            grid-area: div1;
+            background: url('/src/Public/Static/Images/jpg/Form_1.jpg');
+            background-size: cover;
+        }
+
+        .second-div {
+            grid-area: div2;
+            background: url('/src/Public/Static/Images/jpg/Form_2.jpg');
+            background-size: cover;
+        }
+
+        .third-div{
+            grid-area: div3;
+            background: url('/src/Public/Static/Images/jpg/Form_3.jpg');
+            background-size: cover;
+        }
+
+        .form-container{
+            overflow: hidden;
+            @include m.absolute;
+            background-color: #fff;
+            width: 500px;
+            min-height: 600px;
+            padding: 3rem;
+
+            .error-popup{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                z-index: 20000;
+                position: absolute;
+                top: -100%;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                backdrop-filter: blur(15px);
+                padding: 3rem;
+                transition: 1s ease all;
+                .retry {
+                    cursor: pointer;
+                    border-bottom: 2px solid v.$rose;
+                    padding-bottom: 1.25rem;
+                    width: 125px;
+                    img{
+                        margin-left: 2rem;
+                        width: 30px;
+                    }
+                    p{
+                        font-size: 18px;
+                    }
+                }
+                h3{
+                    text-align: center;
+                    font-weight: 500;
+                    font-size: 35px;
+                    span{
+                        font-weight: 900;
+                        color: v.$rose;
+                        font-size: 40px;
+                    }
+                }
+                .apologize h4{
+                    font-weight: 500;
+                    font-size: 17px;
+                    span{
+                        font-weight: 900;
+                    }
+                }
+            }
+
+            .error-popup.active{
+                top: 0;
+            }
+
+            form {
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .header{
+                    justify-content: center;
+                    h1{
+                        margin-left: 1rem;
+                        font-family: 'Amatic SC', sans-serif;
+                        font-size: 70px;
+                        font-weight: bolder;
+                    }
+                    img{
+                        width: 50px;
+                    }
+                }
+
+                p{
+                    margin-top: 1.25rem;
+                    margin-bottom: 5rem;
+                    text-align: center;
+                    font-size: 18px;
+                }
+
+                .relative {
+                    width: 80%;
+                    margin: 0 auto;
+                    .input-group{
+                        position: relative;
+                        margin-bottom: 5rem;
+                        label{
+                            position: absolute;
+                            top: -20%;
+                            left: 0;
+                            transform: translate(0, -20%);
+                        }
+                        input{
+                            padding: 1rem 0;
+                            border: none;
+                            border-bottom: 1px solid #ccc;
+                            width: 100%;
+                            outline: none;
+                            color: #333;
+                            font-size: 17px;
+                            &:placeholder-shown, &::placeholder {
+                                color: #333;
+                            }
+                        }
+                    }
+                }
+
+                button{
+                    cursor: pointer;
+                    @include m.between;
+                    background: v.$rose;
+                    color: #fff;
+                    outline: none;
+                    border: none;
+                    width: 200px;
+                    margin: 0 auto;
+                    padding: 1rem 2rem;
+                    font-size: 17.5px;
+                    img{
+                        margin-left: 2rem;
+                        width: 30px;
+                    }
+                }
+
+            }
+        }
+
+        @media only screen and (max-width: 600px){
+            .form-container{
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 500px){
+            .form-container{
+                padding: 4rem 2rem;
+                width: 100%;
+                form {
+                    .relative {
+                        width: 100%;
+                    }
+                    button{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+    }
+}

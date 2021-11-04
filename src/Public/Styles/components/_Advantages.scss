@@ -1,0 +1,502 @@
+// rose, blu, bluD1, bluD2, bluD3, padding-1 to 3(5,3,2)
+@use './variables/variables' as v;
+
+// center, between, absolute
+@use './mixins/mixins' as m;
+
+
+#advantages {
+
+    #header {
+        @include m.align;
+        background: url('/src/Public/Static/Images/jpg/Advantages.jpg') fixed;
+
+       .container {
+
+            h1{
+                font-family: 'Amatic SC';
+                font-weight: 900;
+                font-size: 230px;
+            }
+
+            h1, p{ color: #fff; }
+
+            p{
+                font-size: 25px;
+                width: 50%;
+            }
+
+       }
+
+    }
+
+    #wellstart {
+        .part1, .part2{
+            min-height: 100vh;
+            width: 50%;
+    
+            .container{
+                padding: 5rem;
+                min-height: 100vh;
+            }
+        }
+    
+        .part2{
+            background: v.$blu;
+            .container{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                h1{
+                    color: v.$rose;
+                    font-size: 80px;
+                    font-weight: 400;
+                    width: 100%;
+                }
+                h1, p, .flex {
+                    text-align: right;
+                }
+                p, .flex{
+                    color: #fff;
+                }
+                h1, p{
+                    margin-left: auto;
+                }
+                p{
+                    font-size: 25px;
+                    width: 80%;
+                    font-weight: 300;
+                    opacity: 0.8;
+                    line-height: 35px;
+                }
+                .flex{
+                    justify-content: flex-end;
+                    cursor: pointer;
+                    img{
+                        margin-right: 2rem;
+                    }
+                }
+            }
+        }
+    
+        .part1{
+            background: #f4f4f4;
+    
+            .container {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                h2{
+                    font-size: 70px;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+    #talking {
+        padding: 10rem 0;
+        .container {
+            .flex {
+                margin-bottom: 5rem;
+                img{
+                    width: 180px;
+                    margin-right: 5rem;
+                }
+                h1{
+                    font-size: 80px;
+                    font-weight: 600;
+                    color: v.$rose;
+                }
+            }
+            .content {
+                p{
+                    font-size: 35px;
+                    margin-bottom: 5rem;
+                    width: 50%;
+                }
+                .font {
+                    font-weight: 900;
+                    margin-bottom: 0;
+                }
+                .fonts {
+                    font-weight: 500;
+                    font-size: 35px;
+                }
+            }
+            .tags {
+                margin: 10rem 0;
+                @include m.between;
+                .tag {
+                    @include m.center;
+                    margin-right: 2rem;
+                    background: v.$blu;
+                    color: #fff;
+                    width: 400px;
+                    height: 90px;
+                    border-radius: 15px;
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+
+   #grids {
+       margin-bottom: 10rem;
+       @include m.grid4;
+       grid-template-areas: 
+        "adv1 adv2"
+        "adv1 adv3"
+       ;
+       div:first-child {
+           background: url('/src/Public/Static/Images/jpg/Advantages_1.jpg') fixed;
+           background-size: cover;
+           background-position: center;
+           grid-area: adv1;
+       }
+       div:nth-child(2){
+           grid-area: adv2;
+          img{
+              width: 100%;
+              height: 100%;
+          }
+       }
+       div:last-child {
+           grid-area: adv3;
+          
+       }
+   }
+
+   #effective {
+       min-height: 150vh;
+       @include m.grid4;
+       grid-template-areas: 
+        "area1 area2"
+        "area4 area3"
+       ;
+       .area1{
+            grid-area: area1;
+            background: v.$blu;
+            padding: 5rem 0;
+            @include m.align;
+            .container{
+                h2{
+                    color: v.$rose;
+                    font-size: 80px;
+                    margin-bottom: 5rem;
+                }
+                p{
+                    color: #fff;
+                    font-size: 25px;
+                    &:last-child{ margin-bottom: 0; };
+                    line-height: 35px;
+                }
+            }
+       }
+       .area2{
+           grid-area: area2;
+           background: v.$bluD1;
+           @include m.center;
+           img{
+               width: 250px;
+               opacity: 0.1;
+           }
+       }
+       .area3{
+           margin: 5rem;
+           grid-area: area3;
+           background: url('/src/Public/Static/Images/jpg/Advantages_4.jpg');
+       }
+       .area4{
+           grid-area: area4;
+           background: url('/src/Public/Static/Images/jpg/Advantages_5.jpg') fixed;
+           background-position: center;
+           background-size: cover;
+       }
+
+   }
+
+   #two {
+       display: flex;
+       min-height: 50vh;
+       margin-bottom: 10rem;
+       div{
+           width: 50%;
+           margin: 5rem;
+           overflow: hidden;
+           img{
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+               transform: scale(1);
+               transition: 1s ease all;
+           }
+           &:hover{
+               img{
+                   transform: scale(1.2);
+               }
+           }
+       }
+   }
+
+   #association {
+       background-color: v.$rose;
+       @include m.align;
+       .container{
+           div{
+               width: 50%;
+               @include m.center;
+
+               h3{
+                    font-size: 50px;
+                    color: #fff;
+                    font-weight: 300;
+                    opacity: 0.8;
+                    span{
+                        font-weight: 900;
+                    }
+                }
+            img{
+                width: 300px;
+            }
+           }
+       }
+   }
+
+   #explore {
+       min-height: 30vh;
+       @include m.align;
+       .container {
+           h3{
+               font-size: 33px;
+               font-weight: 600;
+               color: #333;
+               margin-bottom: 2rem;
+               span{
+                   font-weight: 900;
+                   color: #000;
+               }
+
+           }
+           a{
+               font-size: 20px;
+               color: v.$rose;
+               img{
+                   width: 60px;
+                   margin-left: 2rem;
+               }
+           }
+       }
+   }
+
+   @media only screen and (max-width: 1200px){
+       #talking .container .content p{
+            width: 100%;
+        }
+        #effective {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            grid-template-areas: 
+                "area1"
+                "area2"
+                "area3"
+                "area4"
+            ;
+            .area2{
+                justify-content: flex-start;
+                padding: 0 5rem;
+            }
+            .area3 {
+                background-size: cover;
+            }
+        }
+        #association {
+            padding: 10rem 0;
+            .container {
+                flex-direction: column;
+                align-items: flex-start;
+                div{
+                    width: 100%;
+                    justify-content: flex-start;
+                    h3{
+                        margin-bottom: 5rem;
+                    }
+                }
+            }
+        }
+   }
+
+    @media only screen and (max-width: 1000px){
+        #header{
+            nav.active{
+                width: 50%;
+
+                @include m.align;
+                justify-content: flex-start;
+
+                .menu{
+                    position: absolute;
+                    top: 0;
+                }
+            }
+            ul{
+                background-color: red;
+            }
+            .container h1{
+                font-size: 180px;
+            }
+        }
+        
+        #wellstart{
+            flex-direction: column;
+            align-items: flex-start;
+            .part1, .part2 { width: 100%;}
+            .part2 .container p{
+                width: 100%;
+                margin-left: unset;
+            }
+            .part2 .container {
+                h1, p, .flex{
+                    text-align: left;
+                }
+                .flex{
+                    justify-content: flex-start;
+                }
+            }
+        }
+
+        #talking .container {
+            .flex{
+                flex-direction: column;
+                align-items: flex-start;
+                img{
+                    margin-right: 0;
+                    margin-bottom: 5rem;
+                }
+            }
+            .tags {
+                flex-direction: column;
+                align-items: flex-start;
+                .tag{
+                    width: 300px;
+                    font-size: 21px;
+                    margin-right: 0;
+                    margin-bottom: 3rem;
+                    &:last-child{margin-bottom: 0;}
+                }
+            }
+        }
+        
+    }
+
+    @media only screen and (max-width: 750px){
+        #header .container {
+            h1{
+                font-size: 140px;
+            }
+            p{
+                width: 100%;
+            }
+        }
+        #talking .container {
+            .content p{
+                font-size: 30px;;
+            }
+            .flex h1{
+                font-size: 75px;
+            }
+        }
+        #two{
+           flex-direction: column;
+           div{
+               width: 100%;
+               margin: 0;
+               img{ display: block; }
+           }
+        }
+    }
+
+    @media only screen and (max-width: 600px){
+        .container, .part1 .container, .part2 .container {
+            padding: 0 2rem;
+        }
+        #header .container {
+            h1{
+                font-size: 100px;
+                span{ display: none; }
+            }
+            p{
+                font-size: 18px;
+            }
+        }
+        
+        #effective {
+            .area3 {
+                margin: 0;
+                background-position: center;
+            }
+            .area2 {
+                padding: 0 2rem;
+            }
+        }
+        #association .container div h3{
+            font-size: 40px;
+        }
+    }
+
+    @media only screen and (max-width: 500px){
+        .container{
+            padding: 0 2rem;
+        }
+        #effective .area1 .container{
+            h2{
+                font-size: 60px;
+            }
+            p:last-child {
+                font-size: 21px;
+            }
+        }
+        #wellstart {
+            .part2 .container {
+                h1{
+                    font-size: 60px;
+                }
+                p{
+                    font-size: 22px;
+                }
+            }
+            .part2, .part1 {
+                .container{
+                    padding: 0 2rem;
+                }
+            } 
+        }
+        #talking .container {
+            .flex h1{
+                font-size: 65px;
+            }
+            .content p{
+                font-size: 26px;
+                line-height: 45px;
+            }
+            .tags .tag{
+                width: 100%;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 400px){
+        #talking .container {
+            .flex h1{
+                font-size: 55px;
+            }
+            .content p{
+                font-size: 23px;
+            }
+        }
+        #effective .area2 img{
+            width: 80%;
+        }
+    }
+
+}

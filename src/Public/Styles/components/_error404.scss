@@ -1,0 +1,82 @@
+// rose, blu, bluD1, bluD2, bluD3, padding-1 to 3(5,3,2)
+@use './variables/variables' as v;
+
+// center, between, absolute
+@use './mixins/mixins' as m;
+
+#error404 {
+    @include m.grid4;
+    grid-template-areas: 
+        "area1 area2"
+        "area4 area3"
+    ;
+    .area{
+        @include m.center;
+        img{
+            width: 200px;
+            opacity: 0.1;
+        }
+    }
+    .area.area1{
+        grid-area: area1;
+        background-color: v.$blu;
+    }
+    .area.area2{
+        grid-area: area2;
+        background-color: v.$bluD1;
+    }
+    .area.area3{
+        grid-area: area3;
+        background-color: v.$bluD2;
+    }
+    .area.area4{
+        grid-area: area4;
+        background-color: v.$bluD3;
+    }
+    main{
+        @include m.absolute;
+        text-align: center;
+        h1{
+            color: v.$rose;
+            font-family: 'Amatic Sc', sans-serif;
+            font-size: 250px;
+            font-weight: bolder;
+        }
+        p, a{
+            color: #fff;
+        }
+        p {
+            font-size: 30px;
+            margin-bottom: 2rem;
+        }
+
+        a{
+            padding: 1rem 2rem;
+            border-bottom: 1px solid transparent;
+            transition: .5s ease-in all;
+            font-size: 18px;
+            &:hover{
+                border-color: #ccc;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 600px){
+        .area img{
+            width: 100px;
+            opacity: 0.025;
+        }
+    }
+
+    @media only screen and (max-width: 450px){
+        main {
+            h1{
+                font-size: 190px;
+            }
+            p{
+                font-size: 25px;
+            }
+        }
+    }
+
+}
